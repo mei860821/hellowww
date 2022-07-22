@@ -64,6 +64,7 @@ export default {
       this.lastLine = new Konva.Line({
         stroke: "#df4b26",
         strokeWidth: 5,
+        tension: 0.5,
         globalCompositeOperation:
           this.mode === "brush" ? "source-over" : "destination-out",
         points: [pos.x, pos.y],
