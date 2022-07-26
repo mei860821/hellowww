@@ -31,8 +31,8 @@ export default {
     // this.stageConfig.width = window.innerWidth;
     const stage = new Konva.Stage({
       container: "container",
-      width: 800,
-      height: 800,
+      width: window.innerWidth,
+      height: window.innerHeight - 25,
     });
     const layer = new Konva.Layer({
       listening: false,
