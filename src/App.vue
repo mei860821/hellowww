@@ -2,37 +2,41 @@
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
     <!-- <KonvaBox></KonvaBox> -->
-    <div id="container"></div>
+    <!-- <div id="container"></div> -->
 
-    <!-- <v-stage
-      ref="stage"
-      :config="stageConfig"
-      @mousemove="handleMouseMove"
-      @touchmove="handleMouseMove"
-      @mouseDown="handleMouseDown"
-      @touchstart="handleMouseDown"
-      @mouseUp="handleMouseUp"
-      @touchend="handleMouseUp"
-    >
+    <v-stage ref="stage" :config="configKonva">
       <v-layer ref="layer">
         <v-circle :config="configCircle"></v-circle>
       </v-layer>
-    </v-stage> -->
+    </v-stage>
   </div>
 </template>
 
 <script>
-// import Vue from "vue";
-// import VueKonva from "vue-konva";
+import Vue from "vue";
+import VueKonva from "vue-konva";
 import Konva from "konva";
 
-// Vue.use(VueKonva);
+Vue.use(VueKonva);
 
 export default {
   name: "App",
   components: {},
   data() {
-    return {};
+    return {
+      configKonva: {
+        width: 500,
+        height: 500,
+      },
+      configCircle: {
+        x: 100,
+        y: 100,
+        radius: 70,
+        fill: "red",
+        stroke: "black",
+        strokeWidth: 4,
+      },
+    };
   },
   methods: {},
   mounted() {
