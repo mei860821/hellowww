@@ -34,7 +34,9 @@ export default {
       width: 800,
       height: 800,
     });
-    const layer = new Konva.Layer();
+    const layer = new Konva.Layer({
+      listening: false,
+    });
     stage.add(layer);
     // this.staggee = stage;
     // this.layer = layer;
@@ -51,6 +53,7 @@ export default {
         globalCompositeOperation:
           mode === "brush" ? "source-over" : "destination-out",
         points: [pos.x, pos.y],
+        perfectDrawEnabled: false,
       });
       layer.add(lastLine);
     });
