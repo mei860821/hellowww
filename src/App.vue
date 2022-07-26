@@ -31,8 +31,8 @@ export default {
     // this.stageConfig.width = window.innerWidth;
     const stage = new Konva.Stage({
       container: "container",
-      width: window.innerWidth,
-      height: window.innerHeight - 25,
+      width: 800,
+      height: 800,
     });
     const layer = new Konva.Layer();
     stage.add(layer);
@@ -43,7 +43,7 @@ export default {
     let lastLine;
     stage.on("mousedown touchstart", function () {
       isPaint = true;
-      var pos = stage.getPointerPosition();
+      const pos = stage.getPointerPosition();
       lastLine = new Konva.Line({
         stroke: "#df4b26",
         strokeWidth: 5,
@@ -66,7 +66,7 @@ export default {
       }
 
       const pos = stage.getPointerPosition();
-      var newPoints = lastLine.points().concat([pos.x, pos.y]);
+      const newPoints = lastLine.points().concat([pos.x, pos.y]);
       lastLine.points(newPoints);
       layer.batchDraw();
     });
