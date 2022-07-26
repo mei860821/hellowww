@@ -71,7 +71,6 @@ export default {
       const pos = stage.getPointerPosition();
       const newPoints = lastLine.points().concat([pos.x, pos.y]);
       lastLine.points(newPoints);
-      layer.batchDraw();
     });
   },
 };
