@@ -16,6 +16,7 @@
 // import Vue from "vue";
 // import VueKonva from "vue-konva";
 import Konva from "konva";
+import simplify from "simplify-js";
 
 // Vue.use(VueKonva);
 
@@ -67,10 +68,23 @@ export default {
       if (!isPaint) {
         return;
       }
-
       const pos = stage.getPointerPosition();
       const newPoints = lastLine.points().concat([pos.x, pos.y]);
-      lastLine.points(newPoints);
+      const simplifyPoints = [];
+      newPoints.forEach((item, index) => {
+        if (index % 2 !== 0) {
+          return;
+        } else {
+          simplifyPoints.push({ x: item, y: newPoints[index + 1] });
+        }
+      });
+      const aa = simplify(simplifyPoints);
+      const newSimplify = [];
+      aa.forEach((aitem) => {
+        newSimplify.push(aitem.x);
+        newSimplify.push(aitem.y);
+      });
+      lastLine.points(newSimplify);
     });
   },
 };
